@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Button, Layout, Typography } from "antd";
 
-function App() {
+const { Content } = Layout;
+const { Text } = Typography;
+
+const messages = [
+  "Learn React ⚛️",
+  "Apply for jobs 💼",
+  "Invest your new income 🤑",
+];
+
+const App = () => {
+  const step = 1;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Content className="steps">
+      <Content className="numbers">
+        <Content className={`${step >= 1 ? "active" : ""}`}>1</Content>
+        <Content className={`${step >= 2 ? "active" : ""}`}>2</Content>
+        <Content className={`${step >= 3 ? "active" : ""}`}>3</Content>
+      </Content>
+      <Text className="message">
+        Step {step}: {messages[step - 1]}
+      </Text>
+      <Content className="buttons">
+        <Button className="buttons">Previous</Button>
+        <Button className="buttons">Next</Button>
+      </Content>
+    </Content>
   );
-}
+};
 
 export default App;
+// ctrl d for slection
